@@ -1,0 +1,13 @@
+        LD  R1, X
+        LD  R2, Y
+        CMP R1, R2
+        JGT SET
+        ST  R2, max
+        JMP EXIT
+SET:    ST  R1, max
+EXIT:   RET
+X:      WORD 5
+Y:      WORD 3
+max:    WORD 0
+
+    

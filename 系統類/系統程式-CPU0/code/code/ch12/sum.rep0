@@ -1,0 +1,12 @@
+0000          LD   R1, SUM        L  0 001F0028
+0004          LD   R2, I          L  0 002F0024
+0008          LDI  R3, 10         L  8 0830000A
+000C          LDI  R4, 1          L  8 08400001
+0010 FOR:     CMP  R2, R3         A 10 10230000
+0014          JGT  EXIT           J 23 2300000C
+0018          ADD  R1, R2, R1     A 13 13121000
+001C          ADD  R2, R4, R2     A 13 13242000
+0020          JMP  FOR            J 26 26FFFFEC
+0024 EXIT:    RET                 J 2C 2C000000
+0028 I:       RESW 1              D F0 00000001
+002C SUM:     WORD 0              D F2 00000000

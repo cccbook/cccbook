@@ -1,0 +1,17 @@
+        LD  R13, SPTR
+        PUSH R14
+        LDI R2, 3
+        LDI R3, 5
+        CALL MIN
+        POP R14
+        RET
+STACK:  WORD 0
+SPTR:   WORD STACK
+        
+MIN:    CMP R2, R3
+        JLT SET
+        MOV R1, R2
+        JMP EXIT
+SET:    MOV R1, R3
+EXIT:   RET
+    

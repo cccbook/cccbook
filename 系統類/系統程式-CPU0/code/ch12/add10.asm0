@@ -1,0 +1,8 @@
+    LD  R1, X
+    LDI R2, 10
+    ADD R1, R1, R2
+    ST  R1, X
+    RET
+X:  WORD 5
+
+    
