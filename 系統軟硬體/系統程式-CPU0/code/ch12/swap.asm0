@@ -1,0 +1,9 @@
+    LD  R1, X
+    LD  R2, Y
+    ST  R1, Y
+    ST  R2, X
+    RET
+X:  WORD 5
+Y:  WORD 3
+
+    

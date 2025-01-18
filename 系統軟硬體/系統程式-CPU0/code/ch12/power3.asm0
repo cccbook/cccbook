@@ -1,0 +1,19 @@
+        LD  R13, SPTR
+        PUSH R14
+        LDI R2, 3
+        CALL Power3
+        POP R14
+        RET
+STACK:  WORD 0
+SPTR:   WORD STACK
+        
+Power3: LDI R4, 1      ; R4 初始值為 1
+        LDI R1, 1      ; R1 初始值為 1
+        LDI R3, 3      ; R3 是常數 3
+        LDI R5, 1      ; R5 是常數 1
+LOOP:   CMP R4, R2     ; (R4 < R2) ?
+        MUL R1, R1, R3 ; R1=R1*R3
+        ADD R4, R4, R5 ; R4=R4+1
+        JLT LOOP       ; goto LOOP
+EXIT:   RET
+    

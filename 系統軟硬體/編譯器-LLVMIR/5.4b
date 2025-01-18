@@ -1,0 +1,31 @@
+## 5.4 雜湊值編碼（Hashing and Caching）　(LLVM IR)
+
+在 LLVM IR 中，雜湊值編碼（Hashing and Caching）是一種在編譯期間提供記憶體存取效能的技術。
+
+在程式碼中，當我們需要計算某個數值的雜湊值時，可以使用 LLVM IR 提供的兩個主要指令：`llvm.hash` 和 `llvm.hash.hashable`. 該指令可以將數字或字串值轉換為雜湊值。
+
+以下是使用 `llvm.hash` 指令計算雜湊值的範例程式碼：
+
+```llvm
+define i32 @hashExample(i32 %value) {
+  %hash = call i32 @llvm.hash(i32 %value)
+  ret i32 %hash
+}
+```
+
+這段程式碼定義了一個名為 `hashExample` 的函式，該函式接受一個整數參數 `value`，並呼叫 `llvm.hash` 指令計算 `value` 的雜湊值。計算結果存放在 `%hash` 中，然後返回該雜湊值。
+
+使用 `llvm.hash.hashable` 指令的範例程式碼如下：
+
+```llvm
+declare i32 @llvm.hash.hashable(i32, i32, i32, i32)
+
+define i32 @hashableExample(i32 %value1, i32 %value2) {
+  %hash = call i32 @llvm.hash.hashable(i32 %value1, i32 %value2, i32 42, i32 0)
+  ret i32 %hash
+}
+```
+
+這段程式碼定義了一個名為 `hashableExample` 的函式，該函式接受兩個整數參數 `value1` 和 `value2`，並呼叫 `llvm.hash.hashable` 指令計算這兩個值的雜湊值。除了這兩個參數外，指令還接受一個稱為 “執行時編碼器識別碼（Runtime Encoder Identifier）” 的值和一個稱為 “快取行（Cache Line）” 的值。在這個範例中，我們將這兩個值設定為 `42` 和 `0`，然後將雜湊值返回。
+
+透過這兩個指令，我們可以在編譯過程中適當地編碼和快取數值的雜湊值，以提高程式的效能。然而，使用這些指令時需要注意適當的使用時機和條件，以避免不必要的運算和記憶體消耗。

@@ -1,0 +1,14 @@
+        LDI R1, 1
+		LD	R2, aptr
+		LD  R4, 1
+FOR:	LD  R3, [R2]
+		CMP R3, R0
+		JLT EXIT
+		MUL R4, R4, R3
+		ADD R2, R2, R1
+		JMP	FOR
+EXIT:	ST  R4, f
+		RET	
+a:		BYTE	3, 2, 7, 6, 8, 5, -1
+f:		WORD    0
+aptr:	WORD    a

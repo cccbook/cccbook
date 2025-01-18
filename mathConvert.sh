@@ -1,4 +1,5 @@
 # ./gpt2github.sh 數學類/伽羅瓦理論
+# ./gpt2github.sh 數學類/伽羅瓦理論_gh/_chat
 ./gpt2github.sh 數學類/代數學
 ./gpt2github.sh 數學類/非歐幾何
 ./gpt2github.sh 數學類/張量的數學
