@@ -1,0 +1,8 @@
+{
+    "haskell.manageHLS": "GHCup",
+    "mdmath.delimiters": "brackets",
+    "mdmath.autosave": true,
+    "editor.pasteAs.preferences": [
+        
+    ]
+}
